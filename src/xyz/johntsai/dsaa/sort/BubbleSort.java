@@ -10,7 +10,7 @@ public class BubbleSort {
      * http://www.sorting-algorithms.com/bubble-sort
      * @param array
      */
-    public void bubbleSort(int[] array){
+    public static void bubbleSort(Integer[] array){
         boolean swapped = true;
         int i = 0;
         int temp;
@@ -29,11 +29,8 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        BubbleSort bubbleSort = new BubbleSort();
-        int array [] = {5,4,1,3,2};
-        bubbleSort.bubbleSort(array);
-        for(int i:array){
-            System.out.println(i);
-        }
+        Integer array [] = {5,4,1,3,2};
+        bubbleSort(array);
+        Utlis.printArray(array);
     }
 }
