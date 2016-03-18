@@ -7,6 +7,9 @@ public class InsertSort {
 
     /**
      * 插入排序
+     *
+     * 时间复杂度:O(n^2)
+     *
      * <p>
      * before:3,5,1,4,2
      * <p>

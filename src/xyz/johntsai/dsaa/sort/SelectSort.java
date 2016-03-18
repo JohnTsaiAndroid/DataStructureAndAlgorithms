@@ -7,6 +7,9 @@ public class SelectSort {
 
     /**
      * 选择排序
+     *
+     * 时间复杂度:O(n^2)
+     *
      * @param array
      */
     public static void selectSort(Integer[] array){

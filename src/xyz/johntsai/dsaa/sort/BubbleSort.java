@@ -8,6 +8,9 @@ public class BubbleSort {
     /**
      * 冒泡排序
      * http://www.sorting-algorithms.com/bubble-sort
+     *
+     * 时间复杂度:O(n^2)
+     *
      * @param array
      */
     public static void bubbleSort(Integer[] array){
