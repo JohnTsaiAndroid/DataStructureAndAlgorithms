@@ -75,7 +75,7 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-      Integer [] array = {5,1,7,4,8,5,6,2,9,3};
+      Integer [] array = {5,1,7,4,8,5,6,2,9,3,100};
       quickSort(array);
       Utlis.printArray(array);
     }
