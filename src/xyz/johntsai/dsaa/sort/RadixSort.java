@@ -57,6 +57,11 @@ public class RadixSort {
                 bucket[n] += bucket[n - 1];
             }
 
+
+            /**
+             * 因为之前统计每一位的数字是从0-->length-1
+             * 那么将排序后的数放回则要从length-1到0
+             */
             for (int n = length - 1; n >= 0; n--) {
                 int result = (array[n] / m) % 10;
                 temp[bucket[result] - 1] = array[n];
@@ -69,31 +74,6 @@ public class RadixSort {
         }
 
     }
-
-    /**
-     *
-     *
-     * 1. 1,432,32, 5, 675, 33, 22, 3, 567
-     *   0:           ---0
-     *   1:1          ---1
-     *   2:432,32,22  ---4
-     *   3:33,3       ---6
-     *   4:           ---6
-     *   5:5,675      ---8
-     *   6:           ---8
-     *   7:567        ---9
-     *   8:           ---9
-     *   9:           ---9
-     *
-     *   after:
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     */
 
     public static void main(String[] args) {
         Integer[] array = {1, 432, 32, 5, 675, 33, 22, 3, 567};
