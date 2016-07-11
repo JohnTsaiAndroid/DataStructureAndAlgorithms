@@ -57,4 +57,13 @@ public class Utlis{
         System.out.println();
     }
 
+    public static <T extends Comparable<T>>boolean isSortedArray(T [] array){
+        if(array==null||array.length==0)
+            throw new RuntimeException("array must not be empty");
+        for(int i = 0;i<array.length-1;i++){
+            if(array[i].compareTo(array[i+1])>0)
+                return false;
+        }
+        return true;
+    }
 }
