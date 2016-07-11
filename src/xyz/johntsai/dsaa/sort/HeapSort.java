@@ -3,7 +3,7 @@ package xyz.johntsai.dsaa.sort;
 /**
  * Created by JohnTsai on 16/3/21.
  */
-public class HeapSort {
+public class HeapSort <T extends Comparable<T>>{
     /**
      * 堆排序
      *
@@ -29,7 +29,7 @@ public class HeapSort {
 
     private static int length;
 
-    public static void heapSort(Integer[]array){
+    public  void heapSort(T[]array){
          buildHeap(array);
          for(int i = length;i>0;i--){
              exchange(array, 0, i);
@@ -38,16 +38,16 @@ public class HeapSort {
          }
     }
 
-    public static void maxHeap(Integer[] array, int i) {
+    public  void maxHeap(T[] array, int i) {
         int left = 2*i,right = 2*i+1;
         int largest;
-        if(left<=length&&array[left]>array[i]){
+        if(left<=length&&array[left].compareTo(array[i])>0){
             largest = left;
         }else{
             largest = i;
         }
 
-        if(right<=length&&array[right]>array[largest]){
+        if(right<=length&&array[right].compareTo(array[largest])>0){
             largest = right;
         }
         if(largest!=i){
@@ -56,13 +56,13 @@ public class HeapSort {
         }
     }
 
-    private static void exchange(Integer[] array, int i, int j) {
-        int temp = array[i];
+    private  void exchange(T[] array, int i, int j) {
+        T temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
 
-    public static void buildHeap(Integer[] array) {
+    public  void buildHeap(T[] array) {
         length = array.length -1;
         for(int i = length/2;i>=0;i--){
             maxHeap(array,i);
@@ -71,7 +71,8 @@ public class HeapSort {
 
     public static void main(String[] args) {
         Integer [] array = {3,2,5,1,4,6,3,8,3,5,6,5,4,9};
-        heapSort(array);
+        HeapSort<Integer> sort = new HeapSort<>();
+        sort.heapSort(array);
         Utlis.printArray(array);
     }
 

@@ -3,7 +3,7 @@ package xyz.johntsai.dsaa.sort;
 /**
  * Created by JohnTsai on 16/3/18.
  */
-public class MergeSort {
+public class MergeSort<T extends Comparable<T>> {
     /**
      * 归并排序
      *
@@ -33,7 +33,7 @@ public class MergeSort {
      */
 
 
-    public static void mergeSort(Integer [] array,Integer [] temp,int left,int right){
+    public  void mergeSort(T [] array,T [] temp,int left,int right){
         //递归结束的条件
         if(left>=right)
             return;
@@ -49,7 +49,7 @@ public class MergeSort {
         //合并
         int i = left;
         while (left1<=right1&&left2<=right2){
-             temp[i++] = array[left1]<array[left2]?array[left1++]:array[left2++];
+             temp[i++] = array[left1].compareTo(array[left2])<0?array[left1++]:array[left2++];
         }
 
         //对于左边的数 可能还没放完
@@ -67,14 +67,15 @@ public class MergeSort {
         }
     }
 
-    public static void sort(Integer[] array){
-        Integer[] temp = new Integer[array.length];
+    public  void sort(T[] array){
+        T[] temp = (T[]) new Comparable[array.length];
         mergeSort(array,temp,0,array.length-1);
     }
 
     public static void main(String[] args) {
         Integer[] array = {5,1,7,4,8,5,6,2,9,3};
-        sort(array);
+        MergeSort<Integer> sort = new MergeSort<>();
+        sort.sort(array);
         Utlis.printArray(array);
     }
 }

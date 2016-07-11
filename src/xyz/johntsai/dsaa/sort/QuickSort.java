@@ -3,7 +3,7 @@ package xyz.johntsai.dsaa.sort;
 /**
  * Created by JohnTsai on 16/3/18.
  */
-public class QuickSort {
+public class QuickSort<T extends Comparable<T>> {
 
     /**
      * 快速排序
@@ -35,26 +35,26 @@ public class QuickSort {
      * 对(2,1,3,4)和(5,6,8,9,7)进行第一二步相同操作
      * 依此类推...
      */
-    public static void quickSort(Integer[] array){
+    public  void quickSort(T[] array){
          quicksort(array,0,array.length-1);
     }
 
     /**
      * 分割
      */
-    private static int partition(Integer[]array,int low,int high){
-        int pivot = array[high];
+    private  int partition(T[]array,int low,int high){
+        T pivot = array[high];
         int i = low;
         for(int j = low;j<high;j++){
-            if(array[j]<=pivot){
+            if(array[j].compareTo(pivot)<=0){
                 //交换a[i]和a[j]的值
-                int temp = array[i];
+                T temp = array[i];
                 array[i] = array[j];
                 array[j] = temp;
                 i++;
             }
         }
-        int temp = array[i];
+        T temp = array[i];
         array[i] = array[high];
         array[high]=temp;
         return i;
@@ -66,7 +66,7 @@ public class QuickSort {
      * @param low
      * @param high
      */
-    private static void quicksort(Integer [] array,int low,int high){
+    private  void quicksort(T [] array,int low,int high){
         if(low<high){
             int pivot = partition(array,low,high);
             quicksort(array,low,pivot-1);
@@ -76,7 +76,8 @@ public class QuickSort {
 
     public static void main(String[] args) {
       Integer [] array = {5,1,7,4,8,5,6,2,9,3,100};
-      quickSort(array);
+      QuickSort<Integer> sort = new QuickSort<>();
+      sort.quickSort(array);
       Utlis.printArray(array);
     }
 }

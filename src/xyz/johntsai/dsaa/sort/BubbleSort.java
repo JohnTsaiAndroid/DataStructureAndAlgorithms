@@ -3,7 +3,7 @@ package xyz.johntsai.dsaa.sort;
 /**
  * Created by JohnTsai on 16/3/17.
  */
-public class BubbleSort {
+public class BubbleSort<T extends Comparable<T>> {
 
     /**
      * 冒泡排序
@@ -13,15 +13,15 @@ public class BubbleSort {
      *
      * @param array
      */
-    public static void bubbleSort(Integer[] array){
+    public  void bubbleSort(T[] array){
         boolean swapped = true;
         int i = 0;
-        int temp;
+        T temp;
         while (swapped){
             swapped = false;
             i++;
             for(int j = 0;j<array.length-i;j++){
-                if(array[j]>array[j+1]){
+                if(array[j].compareTo(array[j+1])>0){
                     temp = array[j];
                     array[j] = array[j+1];
                     array[j+1]=temp;
@@ -33,7 +33,15 @@ public class BubbleSort {
 
     public static void main(String[] args) {
         Integer array [] = {5,4,1,3,2};
-        bubbleSort(array);
+        Character characters [] = {'c','z','b','e','f','a'};
+
+        BubbleSort<Integer> sort = new BubbleSort<>();
+        sort.bubbleSort(array);
         Utlis.printArray(array);
+
+        BubbleSort<Character> characterBubbleSort = new BubbleSort<>();
+        characterBubbleSort.bubbleSort(characters);
+        Utlis.printArray(characters);
+
     }
 }

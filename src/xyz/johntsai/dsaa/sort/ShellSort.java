@@ -3,7 +3,7 @@ package xyz.johntsai.dsaa.sort;
 /**
  * Created by JohnTsai on 16/7/3.
  */
-public class ShellSort {
+public class ShellSort <T extends Comparable<T>>{
     /**
      * 希尔排序
      * 基于插入排序
@@ -12,7 +12,7 @@ public class ShellSort {
      *
      * @param array
      */
-    public static void shellSort(Integer [] array){
+    public  void shellSort(T [] array){
         int length = array.length;
         int h = 1;
         //获取步长
@@ -20,8 +20,8 @@ public class ShellSort {
             h=3*h+1;
         while(h>=1){
             for(int i = h;i<length;i++){
-                for(int j = i;j>=h&&array[j]<array[j-h];j-=h){
-                    int temp = array[j];
+                for(int j = i;j>=h&&array[j].compareTo(array[j-h])<0;j-=h){
+                    T temp = array[j];
                     array[j]=array[j-h];
                     array[j-h]=temp;
                 }
@@ -32,7 +32,8 @@ public class ShellSort {
 
     public static void main(String[] args) {
         Integer[] array = {5,3,1,2,4,6,3,2,7,5,4};
-        shellSort(array);
+        ShellSort<Integer> sort = new ShellSort<>();
+        sort.shellSort(array);
         Utlis.printArray(array);
     }
 }

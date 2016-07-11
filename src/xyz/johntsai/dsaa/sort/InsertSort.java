@@ -3,7 +3,7 @@ package xyz.johntsai.dsaa.sort;
 /**
  * Created by JohnTsai on 16/3/18.
  */
-public class InsertSort {
+public class InsertSort <T extends Comparable<T>>{
 
     /**
      * 插入排序
@@ -23,12 +23,12 @@ public class InsertSort {
      *
      * @param array
      */
-    public static void insertSort(Integer[] array) {
+    public  void insertSort(T[] array) {
         int sorted = 0;
         for(int i = sorted+1;i<array.length;i++){
             for(int j = 0;j<=sorted;j++){
-                if(array[i]<array[j]){
-                    Integer temp = array[i];
+                if(array[i].compareTo(array[j])<0){
+                    T temp = array[i];
                     array[i] = array[j];
                     array[j] = temp;
                 }
@@ -40,7 +40,8 @@ public class InsertSort {
 
     public static void main(String[] args) {
         Integer [] array = {3,5,1,4,2};
-        insertSort(array);
+        InsertSort<Integer> sort = new InsertSort<>();
+        sort.insertSort(array);
         Utlis.printArray(array);
     }
 }
