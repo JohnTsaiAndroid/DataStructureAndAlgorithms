@@ -16,6 +16,7 @@ public class Utlis{
     private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE-8;
 
     /**
+     * 生成随机数组
      * @param size
      * @return
      */
@@ -25,6 +26,31 @@ public class Utlis{
         Integer result [] = new Integer[size];
         for(int i = 0;i<size;i++){
             result[i] = random.nextInt(size);
+        }
+        return result;
+    }
+
+    /**
+     * 生成升序数组
+     * @param size
+     * @return
+     */
+    public static Integer [] generateAscOrderIntArray(int size){
+        if(size<0)
+            throw new RuntimeException("The size of array must be positive,but your size is "+size);
+        Integer result[] = new Integer[size];
+        for(int i = 0;i<size;i++){
+            result[i] = i;
+        }
+        return result;
+    }
+
+    public static Integer [] generateDesOrderIntArray(int size){
+        if(size<0)
+            throw new RuntimeException("The size of array must be positive,but your size is "+size);
+        Integer result[] = new Integer[size];
+        for(int i=0;i<size;i++){
+            result[i] = size - i;
         }
         return result;
     }
