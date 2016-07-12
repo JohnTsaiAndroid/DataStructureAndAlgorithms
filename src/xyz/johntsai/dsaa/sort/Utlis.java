@@ -15,17 +15,23 @@ public class Utlis{
 
     private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE-8;
 
+    private static final int INT_ARRAT_RANGE = 100_000_000;
+
+    public static Integer [] generateRandomIntArray(int size){
+        return generateRandomIntArray(size,INT_ARRAT_RANGE);
+    }
+
     /**
      * 生成随机数组
      * @param size
      * @return
      */
-    public static Integer [] generateRandomIntArray(int size){
+    public static Integer [] generateRandomIntArray(int size,int range){
         if(size<0)
             throw new RuntimeException("The size of array must be positive,but your size is "+size);
         Integer result [] = new Integer[size];
         for(int i = 0;i<size;i++){
-            result[i] = random.nextInt(size);
+            result[i] = random.nextInt(range);
         }
         return result;
     }
