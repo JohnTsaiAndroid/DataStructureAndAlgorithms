@@ -1,5 +1,6 @@
 package xyz.johntsai.dsaa.search;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -43,6 +44,11 @@ public class BinarySearchSymbolTable<K extends Comparable<K>,V>{
             return null;
     }
 
+    /**
+     * 根据键使用二分查找的方法获得在数组中的下标
+     * @param key
+     * @return
+     */
     private int rank(K key) {
         int low = 0;
         int high = N-1;
@@ -60,6 +66,13 @@ public class BinarySearchSymbolTable<K extends Comparable<K>,V>{
         return low;
     }
 
+    /**
+     * 递归
+     * @param key
+     * @param low
+     * @param high
+     * @return
+     */
     private int rank(K key,int low,int high){
         if(low>high)
             return low;
@@ -78,6 +91,10 @@ public class BinarySearchSymbolTable<K extends Comparable<K>,V>{
         return N==0;
     }
 
+    /**
+     * 根据键删除在表中的相应的键值对
+     * @param key
+     */
     public void delete(K key){
         if(key==null)
             throw new NullPointerException("the key can't be null");
@@ -95,6 +112,11 @@ public class BinarySearchSymbolTable<K extends Comparable<K>,V>{
             resize(keys.length/2);
     }
 
+    /**
+     * 将键值对放入表中
+     * @param key
+     * @param value
+     */
     public void put(K key,V value){
         if(key == null)
            throw new NullPointerException("the key can't be null");
@@ -118,6 +140,10 @@ public class BinarySearchSymbolTable<K extends Comparable<K>,V>{
         N++;
     }
 
+    /**
+     * 重新规划表中数组的大小
+     * @param i
+     */
     private void resize(int i) {
         K [] ktemp = (K[]) new Comparable[i];
         V [] vtemp = (V[]) new Object[i];
@@ -133,11 +159,13 @@ public class BinarySearchSymbolTable<K extends Comparable<K>,V>{
         return get(key)!=null;
     }
 
+    /**
+     * 获取表中键
+     * @return
+     */
     public Iterable<K> keys(){
         List<K> list = new LinkedList<K>();
-        for(int i = 0;i<N;i++){
-            list.add(keys[i]);
-        }
+        list.addAll(Arrays.asList(keys).subList(0, N));
         return list;
     }
 
