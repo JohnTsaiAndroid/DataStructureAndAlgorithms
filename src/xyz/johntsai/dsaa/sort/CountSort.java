@@ -1,11 +1,6 @@
 package xyz.johntsai.dsaa.sort;
 
-import org.omg.PortableInterceptor.INACTIVE;
-
-import java.util.HashMap;
-import java.util.Map;
-
-/**
+ /**
  * Created by JohnTsai on 16/3/18.
  */
 public class CountSort {

@@ -4,7 +4,7 @@
 
 ### 学习资料
 
-* [1.算法运行动画网站](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
+* [1.算法运行流程动画网站](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)
 * [2.算法时间复杂度对比网站](http://bigocheatsheet.com/)
 * [3.MIT算法公开课](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/)
 
